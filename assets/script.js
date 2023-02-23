@@ -126,7 +126,19 @@ function generatePassword() {
     var isNum = window.confirm("Do you want to add numbers?");
     var isSym = window.confirm("Do you want to add symbols?");
 
-
+// If statements to add certain characters, add array to the end of the current array - .concat
+    if (isUpper === true) {
+      userSelection = userSelection.concat(upperCasedCharacters);
+    }
+    if (isLower === true) {
+      userSelection = userSelection.concat(lowerCasedCharacters);
+    }
+    if (isNum === true) {
+      userSelection = userSelection.concat(numericCharacters);
+    }
+    if (isSym === true) {
+      userSelection = userSelection.concat(specialCharacters);
+    }
 
 
 
