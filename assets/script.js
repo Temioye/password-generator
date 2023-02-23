@@ -1,4 +1,3 @@
-
 // Array of special characters to be included in password
 var specialCharacters = [
   "@",
@@ -94,7 +93,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Function to generate password with user input
 function generatePassword() {
-  // Empty arrays must be local variables in order to reset. 
+  // Empty arrays must be local variables in order to reset.
   var finalPassword = "";
   var userSelection = [];
 
@@ -103,7 +102,7 @@ function generatePassword() {
     "How long do you want your password to be? (Must be between 10 and 64 characters)"
   );
 
- // Check empty password field
+  // Check empty password field
   if (passLength === "") {
     window.alert("Please fill in the password.");
     return;
@@ -126,7 +125,7 @@ function generatePassword() {
     var isNum = window.confirm("Do you want to add numbers?");
     var isSym = window.confirm("Do you want to add symbols?");
 
-// If statements to add certain characters, add array to the end of the current array - .concat
+    // If statements to add certain characters, add array to the end of the current array - .concat
     if (isUpper === true) {
       userSelection = userSelection.concat(upperCasedCharacters);
     }
@@ -140,8 +139,14 @@ function generatePassword() {
       userSelection = userSelection.concat(specialCharacters);
     }
 
+    // Run function inside a for loop to get 1 digit for each number of pass length
+    for (var i = 0; i < passLength; i++) {
+      var randomIndex = Math.floor(Math.random() * userSelection.length); // Math.random picks a number between 0 and 1 NOT including 1.
+      var passDigit = userSelection[randomIndex];
+      finalPassword += passDigit;
+    }
 
-
-
-
-
+    // Return the password
+    return finalPassword;
+  }
+}
