@@ -149,4 +149,13 @@ function generatePassword() {
     // Return the password
     return finalPassword;
   }
+} // Function to write the password
+function writePassword() {
+  var passwordText = document.querySelector("#password");
+  var password = generatePassword();
+  // Says that generatePassword function is equal to ALL the content in the element with the id password
+  passwordText.textContent = password;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
