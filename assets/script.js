@@ -103,6 +103,28 @@ function generatePassword() {
     "How long do you want your password to be? (Must be between 10 and 64 characters)"
   );
 
+ // Check empty password field
+  if (passLength === "") {
+    window.alert("Please fill in the password.");
+    return;
+  }
+  // Minimum password length
+  else if (passLength < 10) {
+    window.alert("Password length must be greater than 10.");
+    return;
+  }
+  // Maximum password length
+  else if (passLength > 64) {
+    window.alert("Password length must not be greater than 64.");
+    return;
+  }
+  // Runs only if the password length is between 10 and 64
+  else {
+    // Defined user selection confirmations
+    var isUpper = window.confirm("Do you want to add uppercase characters?");
+    var isLower = window.confirm("Do you want to add lowercase characters?");
+    var isNum = window.confirm("Do you want to add numbers?");
+    var isSym = window.confirm("Do you want to add symbols?");
 
 
 
